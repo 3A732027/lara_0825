@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('about');
+    return view('welcome');
 });
+Route::get('show', [PostsController::class, 'index'])->name('posts.index');
+Route::get('post', [PostsController::class, 'show'])->name('posts.show');
+Route::get('contact', [PostsController::class, 'contact'])->name('posts.contact');
+Route::get('about', [PostsController::class, 'about'])->name('posts.about');
