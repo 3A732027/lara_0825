@@ -26,7 +26,10 @@ Route::get('/', function () {
 //        'content'=>'test content',
 //    ]);
 
-    $post=Post::all();
+//    $post=Post::all();
+//    dd($post);
+
+    $post=Post::find(1);
     dd($post);
 });
 Route::get('show', [PostsController::class, 'index'])->name('posts.index');
