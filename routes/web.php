@@ -29,8 +29,11 @@ Route::get('/', function () {
 //    $post=Post::all();
 //    dd($post);
 
-    $post=Post::find(1);
-    dd($post);
+//    $post=Post::find(1);
+//    dd($post);
+
+      $post=Post::where('id','<',10)->orderBy('id','DESC')->get();
+      dd($post);
 });
 Route::get('show', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
