@@ -67,8 +67,8 @@ Route::get('/', function () {
 //    dd($lastPost);
 
     $comment = new Comment();
-    $comment->content = '123';
-    $comment->post_id = '4';
+    $comment->content = '456';
+    $comment->post_id = '6';
     $comment->save();
 
 });
