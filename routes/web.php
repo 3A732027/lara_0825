@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostsController;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 
@@ -62,9 +63,14 @@ Route::get('/', function () {
 //    $fourthPost = Post::find(4);
 //    dd($fourthPost);
 
-    $lastPost=Post::orderBy('id','DESC')->first();
-    dd($lastPost);
-    
+//    $lastPost=Post::orderBy('id','DESC')->first();
+//    dd($lastPost);
+
+    $comment = new Comment();
+    $comment->content = '123';
+    $comment->post_id = '4';
+    $comment->save();
+
 });
 Route::get('show', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
