@@ -41,10 +41,13 @@ Route::get('/', function () {
 //       'content' =>'update content',
 //    ]);
 
+//    $post=Post::find(1);
+//    $post->title='save title';
+//    $post->content='save content';
+//    $post->save();
+
     $post=Post::find(1);
-    $post->title='save title';
-    $post->content='save content';
-    $post->save();
+    $post->delete();
 });
 Route::get('show', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
