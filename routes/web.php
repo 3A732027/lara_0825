@@ -66,10 +66,15 @@ Route::get('/', function () {
 //    $lastPost=Post::orderBy('id','DESC')->first();
 //    dd($lastPost);
 
-    $comment = new Comment();
-    $comment->content = '789';
-    $comment->post_id = '8';
-    $comment->save();
+//    $comment = new Comment();
+//    $comment->content = '789';
+//    $comment->post_id = '8';
+//    $comment->save();
+
+    $post=Post::find(6);
+    foreach($post->comments as $comment){
+        echo $comment->content.'<br>';
+    }
 
 });
 Route::get('show', [PostsController::class, 'index'])->name('posts.index');
